@@ -30,7 +30,7 @@ def recv():
             break
 
 
-def sendmsg(msg, sleep = 1):
+def sendmsg(msg, sleep = 6):
     print("Sending: " + msg)
     msg = msg.encode(encoding="utf-8")
     sock.sendto(msg, tello_address)
@@ -43,20 +43,15 @@ recvThread.start()
 
 # CREATE FUNCTIONS HERE....
 
-# Make a Square Function
-def square():
-    sendmsg('up 50')
-    for i in range(4):
-        sendmsg('ccw 90')
-        sendmsg('forward 100')
-
-# Make a Triangle
-def tricks():
-    for i in range(1):
-        sendmsg('flip f')
-        sendmsg('flip b')
+# Drones mission through the first Hula Hoop
+def firstHoop():
+    sendmsg('up 65')
+    sendmsg('forward 190')
 
 
+# Drones mission through the second Hula Hoop
+# def secondHoop():
+    #sendmsg
 
 print("\nDavid Beckman")
 print("Program Name: Tello Drone Training School")
@@ -74,9 +69,9 @@ try:
         sendmsg('command', 0)
         sendmsg('takeoff')
 
-        # Call the Square Function
-        # square()
-        tricks()
+        firstHoop()
+
+        #secondHoop()
 
         sendmsg('land')
 
